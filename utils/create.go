@@ -84,10 +84,9 @@ func scaffold(project Project) {
 	CheckErrorAndExit(installDeps.Run())
 
 	// initialize git and make first commit
-	// git := exec.Command("sh", "-c", "git --version && git init && git add . && git commit -m 'chore: initial commit'")
-	// git.Dir = project.FullPath
-	// err = git.Run()
-	// CheckErrorAndExit(err);
+	git := exec.Command("sh", "-c", "git --version && git init && git add . && git commit -m 'chore: initial commit'")
+	git.Dir = project.FullPath
+	CheckErrorAndExit(git.Run())
 }
 
 // creates files found at the root of the folder
