@@ -16,7 +16,10 @@ const container = new Container();
 /**
  * Setup container bindings
  */
-container.bind<IEmailService>(constants.EmailService).to(EmailService);
+container
+  .bind<IEmailService>(constants.EmailService)
+  .to(EmailService)
+  .inSingletonScope();
 container.bind<UserRepo>(constants.UserRepo).to(UserRepository);
 container
   .bind<VerificationRepo>(constants.VerificationRepo)
